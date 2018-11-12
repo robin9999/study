@@ -1,0 +1,37 @@
+<html>
+<head>
+<h1>to-do-list</h1>
+</head>
+<body>
+    <input type="text" id="txtVal">
+    <input type="button" value="add" onclick="addList()">
+    <br>
+        <ul id="list">
+            
+        </ul>
+
+
+    <script >
+       
+        function addList(){
+            var ul = document.getElementById("list"),
+                  li = document.createElement("li"),
+                  text = document.getElementById("txtVal").value,
+                  ediBtn=document.createElement("button"),
+                  ediTxt=document.createTextNode("edit"),
+                  delBtn=document.createElement("button"),
+                  delTxt=document.createTextNode("del");
+
+                  ediBtn.appendChild(ediTxt);
+                  delBtn.appendChild(delTxt);
+
+            li.appendChild(document.createTextNode(text));
+            li.appendChild(ediBtn);
+            li.appendChild(delBtn);
+            ul.appendChild(li);
+            
+        }
+    
+    </script>
+</body>
+</html>
