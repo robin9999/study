@@ -6,31 +6,56 @@
     <input type="text" id="txtVal">
     <input type="button" value="add" onclick="addList()">
     <br>
-        <ul id="list">
+        <ul id="listUL">
         </ul>
 
 
     <script >
-       
+       //to-do- list add
         function addList(){
-            var ul = document.getElementById("list"),
+            var ul = document.getElementById("listUL"),
                   li = document.createElement("li"),
-                  text = document.getElementById("txtVal").value,
-                  ediBtn=document.createElement("button"),
-                  ediTxt=document.createTextNode("edit"),
-                  delBtn=document.createElement("button"),
-                  delTxt=document.createTextNode("del");
+                  text = document.getElementById("txtVal").value;
 
-                  ediBtn.appendChild(ediTxt);
-                  delBtn.appendChild(delTxt);
-
+                  li.id="li";
+                  if(text ==''){
+                      alert("You must writing to-do-list!!")
+                  }else{
+                   ul.appendChild(li);
+                  }
+            var  ediBtn=document.createElement("input");
+            ediBtn.id="ediBtn";
+            ediBtn.type="button";
+            ediBtn.value="edit";
+            ediBtn.onclick=editTask;
+            var  delBtn=document.createElement("input");
+            delBtn.id="delBtn";
+            delBtn.type="button";
+            delBtn.value="delete";
+          
+            
             li.appendChild(document.createTextNode(text));
             li.appendChild(ediBtn);
             li.appendChild(delBtn);
-            ul.appendChild(li);
+          
             
         }
-    
+    var editTask=function (){
+      
+        var li = document.getElementById("li");
+        var text = document.getElementById("txtVal");
+        var txtBox=document.createElement("input");
+        txtBox.id=txtBox;
+        txtBox.type="textbox";
+        txtBox.value=text.value;
+        
+        // li.appendChild(txtBox);
+        li.replaceChild(txtBox,li.childNodes[0]);
+
+        // window.alert(e.value+"  You finished the game!")
+        window.alert(text.value+"");
+       
+    }
     </script>
 </body>
 </html>
